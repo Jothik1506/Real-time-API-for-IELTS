@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking Interview Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">🎓 IELTS Speaking Interview</h1>
+            <p class="subtitle">Practice with AI-Powered Examiner</p>
+            <div class="status-indicator" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Not Connected</span>
+            </div>
+        </header>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <button id="startButton" class="btn btn-primary">
+                <span class="btn-icon">🎤</span>
+                Start Interview
+            </button>
+
+            <button id="talkButton" class="btn btn-talk" disabled>
+                <span class="btn-icon">🗣️</span>
+                <span class="btn-text">Hold to Talk</span>
+            </button>
+
+            <button id="stopButton" class="btn btn-danger" disabled>
+                <span class="btn-icon">⏹️</span>
+                Stop Interview
+            </button>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Current Question Panel -->
+                <div class="panel question-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">📋 Current Question</h2>
+                        <span class="part-badge" id="partBadge">Part 1</span>
+                    </div>
+                    <div class="panel-content">
+                        <p id="currentQuestion" class="question-text">
+                            Click "Start Interview" to begin...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Live Transcript Panel -->
+                <div class="panel transcript-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">💬 Live Transcript</h2>
+                        <button id="clearTranscript" class="btn-icon-small" title="Clear">🗑️</button>
+                    </div>
+                    <div class="panel-content">
+                        <div id="liveTranscript" class="transcript-content">
+                            <p class="placeholder-text">Your speech will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Panel -->
+                <div class="panel feedback-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">📊 Feedback</h2>
+                    </div>
+                    <div class="panel-content">
+                        <div id="feedbackContent" class="feedback-content">
+                            <p class="placeholder-text">Feedback will appear after your response...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Answer Panel -->
+                <div class="panel sample-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">✨ Sample Answer</h2>
+                    </div>
+                    <div class="panel-content">
+                        <div id="sampleAnswer" class="sample-content">
+                            <p class="placeholder-text">A model answer will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Conversation Log -->
+            <div class="right-column">
+                <div class="panel conversation-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">📜 Conversation Log</h2>
+                        <button id="clearLog" class="btn-icon-small" title="Clear Log">🗑️</button>
+                    </div>
+                    <div class="panel-content">
+                        <div id="conversationLog" class="conversation-log">
+                            <div class="log-item system">
+                                <div class="log-header">
+                                    <span class="log-role">System</span>
+                                    <span class="log-time">${new Date().toLocaleTimeString()}</span>
+                                </div>
+                                <div class="log-content">
+                                    Welcome to the IELTS Speaking Interview Bot. Click "Start Interview" to begin your
+                                    practice session.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Audio Element for Remote Stream -->
+        <audio id="remoteAudio" autoplay></audio>
+
+        <!-- Instructions Modal (Optional) -->
+        <div id="instructionsModal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <h2>📖 How to Use</h2>
+                <ol class="instructions-list">
+                    <li><strong>Start Interview:</strong> Click to connect and begin</li>
+                    <li><strong>Listen:</strong> The examiner will ask you questions</li>
+                    <li><strong>Respond:</strong> Press and hold "Hold to Talk" button while speaking</li>
+                    <li><strong>Release:</strong> Let go when you finish your answer</li>
+                    <li><strong>Feedback:</strong> Review your band score and improvements</li>
+                    <li><strong>Continue:</strong> The examiner will ask the next question</li>
+                </ol>
+                <p class="modal-note">💡 <strong>Tip:</strong> You can interrupt the examiner by pressing the Talk
+                    button while they're speaking.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
