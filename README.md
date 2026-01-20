@@ -23,10 +23,7 @@ A real-time IELTS speaking practice application using OpenAI's Realtime API with
 
 ### 1. Install Dependencies
 
-```bash
-cd server
-npm install
-```
+
 
 ### 2. Configure Environment
 
