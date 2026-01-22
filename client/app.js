@@ -58,6 +58,15 @@ elements.talkButton.addEventListener('mousedown', startTalking);
 elements.talkButton.addEventListener('mouseup', stopTalking);
 elements.talkButton.addEventListener('mouseleave', stopTalking);
 
+// Scroll listener for UI visibility
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        document.body.classList.add('scrolled');
+    } else {
+        document.body.classList.remove('scrolled');
+    }
+});
+
 // Touch support for mobile
 elements.talkButton.addEventListener('touchstart', (e) => {
     e.preventDefault();
@@ -533,3 +542,15 @@ if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     alert('Your browser does not support WebRTC. Please use a modern browser like Chrome, Edge, or Firefox.');
     elements.startButton.disabled = true;
 }
+
+// ============================================
+// Logo Intro Animation
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('logo-intro');
+
+    setTimeout(() => {
+        document.body.classList.remove('logo-intro');
+    }, 2000);
+});
