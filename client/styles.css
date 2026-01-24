@@ -276,7 +276,7 @@ body.scrolled .control-panel {
 
 /* Panel Styles */
 .panel {
-    background: var(--bg-panel);
+    background: rgba(238, 29, 35, 0.7);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(10px);
