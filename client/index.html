@@ -16,6 +16,10 @@
         <!-- Header -->
         <header class="header">
             <img src="English-Springs-Logo-tran.png" alt="English Springs" class="header-logo">
+            <div id="connectionStatus" class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Ready</span>
+            </div>
         </header>
 
         <!-- Control Panel -->
@@ -34,6 +38,11 @@
                 <span class="btn-icon">⏹️</span>
                 Stop Interview
             </button>
+
+            <a href="upload.html" class="btn btn-secondary">
+                <span class="btn-icon">📚</span>
+                Manage Materials
+            </a>
         </section>
 
         <!-- Main Content Grid -->
@@ -118,6 +127,29 @@
 
         <!-- Hidden Audio Element for Remote Stream -->
         <audio id="remoteAudio" autoplay></audio>
+
+        <!-- API Key Modal -->
+        <div id="apiKeyModal" class="modal" style="display: none;">
+            <div class="modal-content key-modal-content">
+                <h2>🔑 Enter OpenAI API Key</h2>
+                <p class="modal-description">This application requires your own OpenAI API key to function. The key is
+                    stored securely in your temporary session and is never saved to persistent storage.</p>
+
+                <form id="apiKeyForm" class="key-form">
+                    <div class="form-group">
+                        <label for="apiKeyInput" class="form-label">API Key (starts with sk-)</label>
+                        <input type="password" id="apiKeyInput" name="apiKey" class="text-input" placeholder="sk-..."
+                            required autocomplete="off">
+                    </div>
+                    <div id="keyError" class="error-message"></div>
+                    <button type="submit" class="btn btn-primary full-width">
+                        <span class="btn-icon">💾</span>
+                        Save & Continue
+                    </button>
+                    <p class="security-note">🔒 Key is lost when you close the browser.</p>
+                </form>
+            </div>
+        </div>
 
         <!-- Instructions Modal (Optional) -->
         <div id="instructionsModal" class="modal">

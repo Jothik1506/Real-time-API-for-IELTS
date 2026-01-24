@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Management - IELTS Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <img src="english-springs-logo.png" alt="English Springs" class="header-logo">
+            <p class="subtitle">Material Management</p>
+        </header>
+
+        <!-- Navigation -->
+        <div class="control-panel">
+            <a href="index.html" class="btn btn-primary">
+                <span class="btn-icon">🎤</span>
+                Back to Interview
+            </a>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Upload Section -->
+            <div class="left-column">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">📤 Upload PDF Material</h2>
+                    </div>
+                    <div class="panel-content">
+                        <form id="uploadForm" class="upload-form">
+                            <div class="form-group">
+                                <label for="pdfFile" class="form-label">Select PDF File (Max 10MB)</label>
+                                <input type="file" id="pdfFile" name="pdf" accept=".pdf" required class="file-input">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="uploadBtn">
+                                <span class="btn-icon">📄</span>
+                                Upload & Process
+                            </button>
+                        </form>
+                        <div id="uploadStatus" class="status-message"></div>
+                    </div>
+                </div>
+
+                <!-- Search Test Section -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">🔍 Test Search</h2>
+                    </div>
+                    <div class="panel-content">
+                        <form id="searchForm" class="search-form">
+                            <div class="form-group">
+                                <input type="text" id="searchQuery" placeholder="Enter search query..."
+                                    class="text-input" required>
+                            </div>
+                            <button type="submit" class="btn btn-talk">
+                                <span class="btn-icon">🔎</span>
+                                Search
+                            </button>
+                        </form>
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materials List -->
+            <div class="right-column">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">📚 Uploaded Materials</h2>
+                        <button id="refreshBtn" class="btn-icon-small" title="Refresh">🔄</button>
+                    </div>
+                    <div class="panel-content">
+                        <div id="statsInfo" class="stats-info"></div>
+                        <div id="materialsList" class="materials-list">
+                            <p class="placeholder-text">Loading materials...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="upload.js"></script>
+</body>
+
+</html>
