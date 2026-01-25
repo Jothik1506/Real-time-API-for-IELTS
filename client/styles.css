@@ -114,6 +114,10 @@ body.logo-intro .header-logo {
     animation: pulse 2s infinite ease-in-out;
 }
 
+body.logo-intro .header>*:not(.header-logo) {
+    display: none !important;
+}
+
 body.logo-intro .content-grid,
 body.logo-intro .control-panel {
     opacity: 0;
@@ -136,7 +140,7 @@ body.logo-intro .control-panel {
 }
 
 body.scrolled .control-panel {
-    opacity: 0.5;
+    opacity: 0.05;
 }
 
 .control-panel:hover {
@@ -499,8 +503,27 @@ body.scrolled .control-panel {
     cursor: pointer;
     transition: all var(--transition-base);
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* Removed to allow glow effect */
     font-family: inherit;
+}
+
+.btn:not(:disabled):hover {
+    transform: scale(1.05);
+    z-index: 10;
+    opacity: 1 !important;
+}
+
+.btn-primary:not(:disabled):hover {
+    box-shadow: 0 0 15px hsla(var(--primary-hue), 80%, 65%, 0.6),
+        0 0 30px hsla(var(--primary-hue), 80%, 55%, 0.4),
+        0 0 50px hsla(var(--primary-hue), 80%, 55%, 0.3);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px hsla(var(--primary-hue), 80%, 75%, 0.8),
+        0 0 20px hsla(var(--primary-hue), 80%, 65%, 0.6) !important;
 }
 
 .btn::before {
@@ -531,14 +554,9 @@ body.scrolled .control-panel {
     box-shadow: var(--shadow-md);
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
-}
+/* Main button hover logic inherited from .btn:not(:disabled):hover */
 
-.btn-primary:active {
-    transform: translateY(0);
-}
+/* btn-primary:active logic moved to consolidated rule above */
 
 .btn-talk {
     background: linear-gradient(135deg, var(--accent), hsl(var(--accent-hue), 70%, 50%));
@@ -547,14 +565,19 @@ body.scrolled .control-panel {
 }
 
 .btn-talk:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg), 0 0 20px hsla(var(--accent-hue), 70%, 60%, 0.4);
+    box-shadow: 0 0 15px hsla(var(--accent-hue), 70%, 70%, 0.6),
+        0 0 30px hsla(var(--accent-hue), 70%, 60%, 0.4),
+        0 0 50px hsla(var(--accent-hue), 70%, 60%, 0.3);
 }
 
 .btn-talk:active:not(:disabled) {
     transform: scale(0.95);
     background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    box-shadow: 0 0 10px hsla(var(--accent-hue), 70%, 80%, 0.8),
+        0 0 20px hsla(var(--accent-hue), 70%, 70%, 0.6) !important;
 }
+
+/* btn-talk:active logic consolidated above */
 
 .btn-talk.talking {
     background: linear-gradient(135deg, var(--danger), hsl(0, 70%, 45%));
@@ -568,8 +591,15 @@ body.scrolled .control-panel {
 }
 
 .btn-danger:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 0 15px hsla(0, 80%, 65%, 0.6),
+        0 0 30px hsla(0, 70%, 55%, 0.4),
+        0 0 50px hsla(0, 70%, 55%, 0.3);
+}
+
+.btn-danger:active:not(:disabled) {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px hsla(0, 90%, 75%, 0.8),
+        0 0 20px hsla(0, 80%, 65%, 0.6) !important;
 }
 
 .btn:disabled {
@@ -885,7 +915,14 @@ body.scrolled .control-panel {
 }
 
 .btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    transform: scale(1.05);
     background: linear-gradient(135deg, hsl(220, 15%, 35%), hsl(220, 15%, 30%));
+    box-shadow: 0 0 10px hsla(var(--primary-hue), 80%, 55%, 0.4),
+        0 0 20px hsla(var(--primary-hue), 80%, 55%, 0.2);
+    z-index: 10;
+}
+
+.btn-secondary:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 15px hsla(var(--primary-hue), 80%, 55%, 0.4) !important;
 }

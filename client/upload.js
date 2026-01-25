@@ -2,6 +2,12 @@ const API_BASE = window.location.origin;
 
 // Load materials on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // Logo Intro Animation
+    document.body.classList.add('logo-intro');
+    setTimeout(() => {
+        document.body.classList.remove('logo-intro');
+    }, 2000);
+
     loadMaterials();
     loadStats();
 });
