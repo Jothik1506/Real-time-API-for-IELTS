@@ -25,99 +25,134 @@
         <!-- Control Panel -->
         <section class="control-panel">
             <button id="startButton" class="btn btn-primary">
-                <span class="btn-icon">🎤</span>
+                <span class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" x2="12" y1="19" y2="22" />
+                        <line x1="8" x2="16" y1="22" y2="22" />
+                    </svg>
+                </span>
                 Start Interview
             </button>
 
             <button id="talkButton" class="btn btn-talk" disabled>
-                <span class="btn-icon">🗣️</span>
+                <span class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12h5" />
+                        <path d="M17 12h5" />
+                        <path d="M7 12s2.5-7 5-7 5 7 5 7" />
+                        <path d="M7 12s2.5 7 5 7 5-7 5-7" />
+                    </svg>
+                </span>
                 <span class="btn-text">Hold to Talk</span>
             </button>
 
             <button id="stopButton" class="btn btn-danger" disabled>
-                <span class="btn-icon">⏹️</span>
+                <span class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                    </svg>
+                </span>
                 Stop Interview
             </button>
 
             <a href="upload.html" class="btn btn-secondary">
-                <span class="btn-icon">📚</span>
+                <span class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                    </svg>
+                </span>
                 Manage Materials
             </a>
         </section>
 
         <!-- Main Content Grid -->
-        <div class="content-grid">
-            <!-- Left Column -->
-            <div class="left-column">
-                <!-- Current Question Panel -->
-                <div class="panel question-panel">
-                    <div class="panel-header">
-                        <h2 class="panel-title">📋 Current Question</h2>
-                        <span class="part-badge" id="partBadge">Part 1</span>
-                    </div>
-                    <div class="panel-content">
-                        <p id="currentQuestion" class="question-text">
-                            Click "Start Interview" to begin...
-                        </p>
-                    </div>
+        <div class="main-grid">
+            <!-- Top Left: Current Question -->
+            <div class="panel question-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">📋 Current Question</h2>
+                    <span class="part-badge" id="partBadge">Part 1</span>
                 </div>
-
-                <!-- Live Transcript Panel -->
-                <div class="panel transcript-panel">
-                    <div class="panel-header">
-                        <h2 class="panel-title">💬 Live Transcript</h2>
-                        <button id="clearTranscript" class="btn-icon-small" title="Clear">🗑️</button>
-                    </div>
-                    <div class="panel-content">
-                        <div id="liveTranscript" class="transcript-content">
-                            <p class="placeholder-text">Your speech will appear here...</p>
-                        </div>
-                    </div>
+                <div class="panel-content">
+                    <p id="currentQuestion" class="question-text">
+                        Click "Start Interview" to begin...
+                    </p>
                 </div>
+            </div>
 
-                <!-- Feedback Panel -->
-                <div class="panel feedback-panel">
-                    <div class="panel-header">
-                        <h2 class="panel-title">📊 Feedback</h2>
-                    </div>
-                    <div class="panel-content">
-                        <div id="feedbackContent" class="feedback-content">
-                            <p class="placeholder-text">Feedback will appear after your response...</p>
-                        </div>
-                    </div>
+            <!-- Top Right: Feedback -->
+            <div class="panel feedback-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">📊 Feedback</h2>
                 </div>
-
-                <!-- Sample Answer Panel -->
-                <div class="panel sample-panel">
-                    <div class="panel-header">
-                        <h2 class="panel-title">✨ Sample Answer</h2>
-                    </div>
-                    <div class="panel-content">
-                        <div id="sampleAnswer" class="sample-content">
-                            <p class="placeholder-text">A model answer will appear here...</p>
-                        </div>
+                <div class="panel-content">
+                    <div id="feedbackContent" class="feedback-content">
+                        <p class="placeholder-text">Feedback will appear after your response...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column - Conversation Log -->
-            <div class="right-column">
-                <div class="panel conversation-panel">
-                    <div class="panel-header">
-                        <h2 class="panel-title">📜 Conversation Log</h2>
-                        <button id="clearLog" class="btn-icon-small" title="Clear Log">🗑️</button>
+            <!-- Bottom Left: Live Transcript -->
+            <div class="panel transcript-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">💬 Live Transcript</h2>
+                    <button id="clearTranscript" class="btn-icon-small" title="Clear">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18" />
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="panel-content">
+                    <div id="liveTranscript" class="transcript-content">
+                        <p class="placeholder-text">Your speech will appear here...</p>
                     </div>
-                    <div class="panel-content">
-                        <div id="conversationLog" class="conversation-log">
-                            <div class="log-item system">
-                                <div class="log-header">
-                                    <span class="log-role">System</span>
-                                    <span class="log-time">${new Date().toLocaleTimeString()}</span>
-                                </div>
-                                <div class="log-content">
-                                    Welcome to the IELTS Speaking Interview Bot. Click "Start Interview" to begin your
-                                    practice session.
-                                </div>
+                </div>
+            </div>
+
+            <!-- Bottom Right: Sample Answer -->
+            <div class="panel sample-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">✨ Sample Answer</h2>
+                </div>
+                <div class="panel-content">
+                    <div id="sampleAnswer" class="sample-content">
+                        <p class="placeholder-text">A model answer will appear here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Width Bottom: Conversation Log -->
+            <div class="panel conversation-panel col-span-2">
+                <div class="panel-header">
+                    <h2 class="panel-title">📜 Conversation Log</h2>
+                    <button id="clearLog" class="btn-icon-small" title="Clear Log">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18" />
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="panel-content">
+                    <div id="conversationLog" class="conversation-log">
+                        <div class="log-item system">
+                            <div class="log-header">
+                                <span class="log-role">System</span>
+                                <span class="log-time">${new Date().toLocaleTimeString()}</span>
+                            </div>
+                            <div class="log-content">
+                                Welcome to the IELTS Speaking Interview Bot. Click "Start Interview" to begin your
+                                practice session.
                             </div>
                         </div>
                     </div>
@@ -143,7 +178,15 @@
                     </div>
                     <div id="keyError" class="error-message"></div>
                     <button type="submit" class="btn btn-primary full-width">
-                        <span class="btn-icon">💾</span>
+                        <span class="btn-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                                <polyline points="17 21 17 13 7 13 7 21" />
+                                <polyline points="7 3 7 8 15 8" />
+                            </svg>
+                        </span>
                         Save & Continue
                     </button>
                     <p class="security-note">🔒 Key is lost when you close the browser.</p>
